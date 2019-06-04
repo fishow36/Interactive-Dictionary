@@ -1,17 +1,15 @@
 import sqlite3
 
-NAME = 'i_dict_db'
-
 class Database:
-    def __init__(self):
-        self._connection = sqlite3.connect(NAME)
+    def __init__(self, name):
+        self._connection = sqlite3.connect(name)
 
     def commit(self):
         self._connection.commit()
 
-    def execute(self, q, arg):
+    def execute(self, q, arg=None):
         cur = self._connection.cursor()
-        if arg != 0:
+        if arg:
             cur.execute(q, arg)
         else:
             cur.execute(q)

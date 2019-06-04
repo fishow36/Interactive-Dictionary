@@ -1,7 +1,7 @@
 from db_utils import Database
 
-def make_tables():
-    db = Database()
+def make_tables(name):
+    db = Database(name)
     db.execute("DROP TABLE IF EXISTS word_info;", 0)
     db.execute("""CREATE TABLE word_info
                     (word_id INTEGER PRIMARY KEY AUTOINCREMENT,
