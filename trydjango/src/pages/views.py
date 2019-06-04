@@ -2,11 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from rus_urban import settings
 # from django.db import connection
-from db_utils import Database
-from db_maker import make_tables
 from words.models import Word
 
-db_name = settings.DATABASES['default']['NAME']
 # make_tables(db_name) # uncomment if you want to drop and create new tables
 
 # Create your views here.
@@ -45,8 +42,4 @@ def output(request, *args, **kwargs):
     # cursor = connection.cursor()
     # cursor.execute('''...''')
     # row = cursor.fetchone()
-    db = Database(db_name)
-    row = db.execute('''SELECT * FROM word_info''')
-    db.commit()
-    print(request.GET['word'], row)
     return render(request, 'output.html', {})
