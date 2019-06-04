@@ -16,12 +16,16 @@ def home_view(request, *args, **kwargs):
     # хочу вывести три последних слова пока
     latest_id = Word.objects.latest('id').id
 
-    home_context = {
-        'word1' : Word.objects.get(id=latest_id),
-        'word2' : Word.objects.get(id=latest_id-1),
-        'word3' : Word.objects.get(id=latest_id-2)
+    home_context = []
+    for i in range(5):
+        try:
+            home_context.append(Word.objects.get(id=latest_id-i))
+        except:
+            break
+    context = {
+        'dict': home_context
     }
-    return render(request, 'home.html', home_context)
+    return render(request, 'home.html', context)
 
 def contacts(request, *args, **kwargs):
 	about_context = {

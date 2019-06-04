@@ -16,10 +16,29 @@
             </div>
         </div>
     </div>
-{% if word1.id > 2 %}
-    <p> Недавние слова: </p>
-    <p> {{ word1.word }} - {{ word1.definition }} </p>
-    <p> {{ word2.word }} - {{ word2.definition }} </p>
-    <p> {{ word3.word }} - {{ word3.definition }} </p>
-{% endif %}
+
+<br/><br/>
+
+<table class="table table-hover" style="width:80%; margin: 0 auto;">
+    <caption style="caption-side:top;">Недавние слова</caption>
+    <thead>
+        <tr>
+            <th scope="col" style="width:3%;">Id</th>
+            <th scope="col" style="width:5%;">Word</th>
+            <th scope="col" style="width:40%;">Definition</th>
+            <th scope="col">Examples</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for elem in dict %}
+        <tr>
+            <th scope="row">{{ forloop.counter }}</th>
+            <td>{{ elem.word }}</td>
+            <td>{{ elem.definition }}</td>
+            <td>{{ elem.examples|linebreaks }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
 {% endblock %}
