@@ -21,6 +21,7 @@ def add_word_view(request, *args, **kwargs):
 	context = {
 	'form' : form
 	}
-
-
 	return render(request, 'add.html', context)
+
+def output(request, *args, **kwargs):
+    return render(request, 'output.html', {})
