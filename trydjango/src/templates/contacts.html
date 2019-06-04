@@ -2,4 +2,11 @@
 
 {% block content %}
 <h1>Please message me</h1>
+
+<p>
+	{{about_title}}, {{number}}
+</p>
+{% for item in some_list %}
+<p>{{item}}</p>
+{% endfor %}
 {% endblock %}
