@@ -1,4 +1,25 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1>the dictionary will be here..</h1>
+<div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-10 col-lg-8">
+                <form class="card card-sm" action="output" method="GET" target="_blank">
+                    <div class="card-body row no-gutters align-items-center">
+                        <div class="col">
+                            <input class="form-control form-control-lg form-control-borderless" type="search" placeholder="Enter a word">
+                        </div>
+                        <div class="col-auto">
+                            <button class="btn btn-lg btn-success" type="submit">Search</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% if word1.id > 2 %}
+<p> Недавние слова: </p>
+<p> {{word1.name}} - {{word1.description}} </p>
+<p> {{word2.name}} - {{word2.description}} </p>
+<p> {{word3.name}} - {{word3.description}} </p>
+{% endif %}
 {% endblock %}
