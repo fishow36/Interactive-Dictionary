@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from pages.views import add_word_view
+from words.views import add_word_view
 from pages import views
 urlpatterns = [
 	path('', views.home_view, name='home'),

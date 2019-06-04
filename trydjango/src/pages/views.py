@@ -1,7 +1,5 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Word
-from .forms import NewWord
 # Create your views here.
 def home_view(request, *args, **kwargs):
 	return render(request, 'home.html', {})
