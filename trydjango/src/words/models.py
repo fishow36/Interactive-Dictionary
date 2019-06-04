@@ -2,5 +2,6 @@ from django.db import models
 
 # Create your models here.
 class Word(models.Model):
-	name 		= models.CharField(max_length=100)
-	description = models.TextField(null = True, blank=True)
+    word        = models.CharField(max_length=100)
+    definition  = models.TextField(null=True, blank=True, default="Description")
+    examples    = models.TextField(null=True, blank=True, default="Examples")

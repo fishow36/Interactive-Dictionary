@@ -11,13 +11,14 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
 
     {% load staticfiles %}
-    <!-- <link rel="stylesheet" href="{% static 'css/search_bar_styles.css' %}" /> -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
     <link rel="shortcut icon" type="image/x-icon" href="{% static 'pictures/loupe.png' %}"/>
 
 	<title>Словарь русского сленга</title>
 	</head>
 <body>
 	{% include 'navbar.html' %}
+    <br/><br/>
 	{% block content %}
 	{% endblock %}
 	{% block new %}

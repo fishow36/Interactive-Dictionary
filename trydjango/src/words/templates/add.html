@@ -1,10 +1,20 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-<form method='POST'> {% csrf_token %}
-	{{ form.as_p }}
-	<input type = 'submit' value = 'Save'/>
-	
-</form>
+    <form method='POST'> {% csrf_token %}
+        <!-- {{ form.as_p }} -->
+        <p>
+            <label for="id_word">Word:</label>
+            <input id="id_word" type="text" name="word" maxlength="100" placeholder="word"/>
+        </p>
+        <p>
+            <label for="id_definition">Defition:</label>
+            <textarea id="id_definition" name="definition" placeholder="definition"></textarea>
+        </p>
+        <p>
+            <label for="id_examples">Examples:</label>
+            <textarea id="id_examples" name="examples" placeholder="examples"></textarea>
+        </p>
+        <input type='submit' class="btn btn-success" value='Save'/>
+    </form>
 {% endblock %}

@@ -5,6 +5,7 @@ class NewWord(forms.ModelForm):
 	class Meta:
 		model = Word
 		fields = [
-		'name',
-		'description'
+            'word',
+            'definition',
+            'examples'
 		]

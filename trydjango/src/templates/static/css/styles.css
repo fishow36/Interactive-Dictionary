@@ -1,0 +1,15 @@
+label, input[type="submit"] {
+    width:100px;
+    margin-left: 50px;
+}
+
+textarea {
+    vertical-align:middle;
+    width:500px;
+    height:100px;
+    margin-left: 10px;
+}
+
+input[type="text"] {
+    margin-left: 10px;
+}
