@@ -17,12 +17,13 @@ from django.contrib import admin
 from django.urls import path
 from words.views import add_word_view
 from pages import views
+from django.urls import path, include
 urlpatterns = [
 	path('', views.home_view, name='home'),
 	path('contacts/', views.contacts, name='contacts'),
     path('admin/', admin.site.urls),
     path('add/', add_word_view),
     path('output/', views.output, name='output'),
-    path('login/', views.login_view, name = 'login'),
-    path('about/', views.about_view, name = 'about')
+    path('about/', views.about_view, name = 'about'),
+    path('accounts/', include('accounts.urls'))
 ]
