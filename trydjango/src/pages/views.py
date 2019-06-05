@@ -46,14 +46,9 @@ def home_view(request, *args, **kwargs):
     if Word.objects.all():
         latest_id = Word.objects.latest('id').id
 
-        home_context = []
-        for i in range(n):
-            try:
-                home_context.append(Word.objects.get(id=latest_id-i))
-            except:
-                break
+        latest_words = Word.objects.all().order_by('-id')[:n]
         context = {
-            'dict': home_context
+            'contdict': latest_words
         }
     else:
         context = {}
@@ -62,8 +57,6 @@ def home_view(request, *args, **kwargs):
 def contacts(request, *args, **kwargs):
 	contacts_context = {
         "about_title" : "Contacts",
-        "number" : 18,
-        "some_list" : [12, 13, 14, 15]
 	}
 	return render(request, 'contacts.html', contacts_context)
     
