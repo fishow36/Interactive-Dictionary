@@ -7,5 +7,8 @@ class NewWord(forms.ModelForm):
 		fields = [
             'word',
             'definition',
-            'examples'
+            'examples',
+            'updater',
+            'city',
+            'date'
 		]

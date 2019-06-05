@@ -1,32 +1,35 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-12 col-md-10 col-lg-8">
-                <form class="card card-sm" action="output" method="GET">
-                    <div class="card-body row no-gutters align-items-center">
-                        <div class="col">
-                            <input class="form-control form-control-lg form-control-borderless" type="search" placeholder="Enter a word" name="word">
-                        </div>
-                        <div class="col-auto">
-                            <button class="btn btn-lg btn-success" type="submit">Search</button>
-                        </div>
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-10 col-lg-8">
+            <form class="card card-sm" action="output" method="GET">
+                <div class="card-body row no-gutters align-items-center">
+                    <div class="col">
+                        <input class="form-control form-control-lg form-control-borderless" type="search" placeholder="Enter a word" name="word">
                     </div>
-                </form>
-            </div>
+                    <div class="col-auto">
+                        <button class="btn btn-lg btn-success" type="submit">Search</button>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
+</div>
 
 <br/><br/>
 
 <table class="table table-hover" style="width:80%; margin: 0 auto;">
-    <caption style="caption-side:top;">Недавние слова</caption>
+    <caption style="caption-side:top;">Недавно добавленные слова</caption>
     <thead>
         <tr>
-            <th scope="col" style="width:3%;">Id</th>
+            <th scope="col" style="width:5%;">Id</th>
             <th scope="col" style="width:5%;">Word</th>
-            <th scope="col" style="width:40%;">Definition</th>
-            <th scope="col">Examples</th>
+            <th scope="col" style="width:35%;">Definition</th>
+            <th scope="col" style="width:35%;">Examples</th>
+            <th scope="col" style="width:5%;">Nickname</th>
+            <th scope="col" style="width:5%;">City</th>
+            <th scope="col" style="width:10%;">Date</th>
         </tr>
     </thead>
     <tbody>
@@ -36,6 +39,9 @@
             <td>{{ elem.word }}</td>
             <td>{{ elem.definition }}</td>
             <td>{{ elem.examples|linebreaks }}</td>
+            <td>{{ elem.updater }}</td>
+            <td>{{ elem.city }}</td>
+            <td>{{ elem.date }}</td>
         </tr>
         {% endfor %}
     </tbody>

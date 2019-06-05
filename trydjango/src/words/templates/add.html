@@ -3,17 +3,30 @@
 {% block content %}
     <form method='POST'> {% csrf_token %}
         <!-- {{ form.as_p }} -->
+        <p style="margin-left:50px;">Add a new word:</p>
         <p>
             <label for="id_word">Word:</label>
-            <input id="id_word" type="text" name="word" maxlength="100" placeholder="word"/>
+            <input id="id_word" type="text" name="word" maxlength="100" placeholder="word" required/>
         </p>
         <p>
-            <label for="id_definition">Defition:</label>
-            <textarea id="id_definition" name="definition" placeholder="definition"></textarea>
+            <label for="id_definition">Definition:</label>
+            <textarea id="id_definition" name="definition" placeholder="definition" required></textarea>
         </p>
         <p>
             <label for="id_examples">Examples:</label>
-            <textarea id="id_examples" name="examples" placeholder="examples"></textarea>
+            <textarea id="id_examples" name="examples" placeholder="examples" required></textarea>
+        </p>
+        <p>
+            <label for="id_nickname">Nickname:</label>
+            <input id="id_nickname" type="text" name="updater" maxlength="100" placeholder="nickname" required/>
+        </p>
+        <p>
+            <label for="id_city">City:</label>
+            <input id="id_city" type="text" name="city" maxlength="100" placeholder="city" required/>
+        </p>
+        <p style="display:none;">
+            <label for="id_date">Date:</label>
+            <input id="id_date" type="text" name="date" maxlength="100" placeholder="date" value='{% now "jS F Y H:i" %}'/>
         </p>
         <input type='submit' class="btn btn-success" value='Save'/>
     </form>

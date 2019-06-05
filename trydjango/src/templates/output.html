@@ -20,25 +20,39 @@
 
 <br/><br/>
 
-<table class="table table-hover" style="width:80%; margin: 0 auto;">
-    <thead>
-        <tr>
-            <th scope="col" style="width:3%;">Id</th>
-            <th scope="col" style="width:5%;">Word</th>
-            <th scope="col" style="width:40%;">Definition</th>
-            <th scope="col">Examples</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for elem in dict %}
-        <tr>
-            <th scope="row">{{ forloop.counter }}</th>
-            <td>{{ elem.word }}</td>
-            <td>{{ elem.definition }}</td>
-            <td>{{ elem.examples|linebreaks }}</td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
+{% if dict %}
+    <table class="table table-hover" style="width:80%; margin: 0 auto;">
+        <caption style="caption-side:top;">Найденные слова</caption>
+        <thead>
+            <tr>
+                <th scope="col" style="width:5%;">Id</th>
+                <th scope="col" style="width:5%;">Word</th>
+                <th scope="col" style="width:35%;">Definition</th>
+                <th scope="col" style="width:35%;">Examples</th>
+                <th scope="col" style="width:5%;">Nickname</th>
+                <th scope="col" style="width:5%;">City</th>
+                <th scope="col" style="width:10%;">Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for elem in dict %}
+            <tr>
+                <th scope="row">{{ forloop.counter }}</th>
+                <td>{{ elem.word }}</td>
+                <td>{{ elem.definition }}</td>
+                <td>{{ elem.examples|linebreaks }}</td>
+                <td>{{ elem.updater }}</td>
+                <td>{{ elem.city }}</td>
+                <td>{{ elem.date }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <div style="margin-left: 50px;">
+    <p>К сожалению, совпадений нет.<p>
+    <p>Но Вы можете добавить слово <i>{{ word }}</i> по следующей ссылке: <a href="/add">Добавить новое слово</a>.</p>
+    </div>
+{% endif %}
 
 {% endblock %}
