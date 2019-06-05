@@ -60,12 +60,12 @@ def home_view(request, *args, **kwargs):
     return render(request, 'home.html', context)
 
 def contacts(request, *args, **kwargs):
-	about_context = {
+	contacts_context = {
         "about_title" : "Contacts",
         "number" : 18,
         "some_list" : [12, 13, 14, 15]
 	}
-	return render(request, 'contacts.html', about_context)
+	return render(request, 'contacts.html', contacts_context)
     
 def add_word_view(request, *args, **kwargs):
     form = NewWord(request.POST or None)
@@ -88,3 +88,11 @@ def output(request, *args, **kwargs):
         'word': word
     }
     return render(request, 'output.html', context)
+
+def about_view(request, *args, **kwargs):
+	about_context = {}
+	return render(request, 'about.html', about_context)
+
+def login_view(request, *args, **kwargs):
+	login_context = {}
+	return render(request, 'login.html', login_context)

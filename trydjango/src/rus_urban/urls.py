@@ -22,5 +22,7 @@ urlpatterns = [
 	path('contacts/', views.contacts, name='contacts'),
     path('admin/', admin.site.urls),
     path('add/', add_word_view),
-    path('output/', views.output, name='output')
+    path('output/', views.output, name='output'),
+    path('login/', views.login_view, name = 'login'),
+    path('about/', views.about_view, name = 'about')
 ]
