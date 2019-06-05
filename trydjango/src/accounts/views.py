@@ -20,7 +20,7 @@ def login_view(request, *args, **kwargs):
             response.set_cookie('user_name', user_name, 3600)
             return response
         else:
-            error_json = {'error_message': 'User name or password is not correct.'}
+            error_json = {'error_message': 'Никнейм или пароль некорректны.'}
             return render(request, 'login.html', error_json)
     else:
         return render(request, 'login.html')
@@ -41,7 +41,7 @@ def signup_view(request, *args, **kwargs):
                 user = get_user_model().objects.create_user(username=user_name, password=user_password, email=user_email)
                 # update user object staff field value and save to db.
                 if user is not None:
-                    user.is_staff = True
+                    user.is_staff = False
                     # save user properties in sqlite auth_user table.
                     user.save()
                 # redirect web page to register success page.
@@ -52,10 +52,10 @@ def signup_view(request, *args, **kwargs):
                 request.session['user_email'] = user_email
                 return response
             else:
-                error_json = {'error_message': 'User account exist, please register another one.'}
+                error_json = {'error_message': 'Такой аккаунт уже есть. Пожалуйста, выберите другой никнейм.'}
                 return render(request, 'signup.html', error_json)
         else:
-            error_json = {'error_message': 'User name, password and email can not be empty.'}
+            error_json = {'error_message': 'Никнейм, пароль и email должны быть заполнены.'}
             return render(request, 'signup.html', error_json)
     else:
         return render(request, 'signup.html')
