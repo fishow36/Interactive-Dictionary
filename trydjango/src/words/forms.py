@@ -8,7 +8,6 @@ class NewWord(forms.ModelForm):
             'word',
             'definition',
             'examples',
-            'updater',
             'city',
             'date'
 		]
