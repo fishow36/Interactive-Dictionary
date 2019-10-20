@@ -39,7 +39,9 @@
             <tr>
                 <th scope="row">{{ forloop.counter }}</th>
                 <td>{{ elem.word }}</td>
+                {% autoescape off %}
                 <td>{{ elem.definition }}</td>
+                {% endautoescape %}
                 <td>{{ elem.examples|linebreaks }}</td>
                 <td>{{ elem.updater }}</td>
                 <td>{{ elem.city }}</td>
